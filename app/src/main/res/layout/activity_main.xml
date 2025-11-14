@@ -1,19 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:background="@drawable/fondo_degradado"
     tools:context=".MainActivity">
 
+    <!-- Nombre de la aplicación -->
     <TextView
+        android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:fontFamily="@font/angkor"
+        android:text="@string/app_name"
+        android:textColor="@color/text_color"
+        android:textSize="28sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Imagen principal de la aplicación-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="211dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@null"
+        app:srcCompat="@drawable/main_img" />
+
+    <!-- Mi nombre -->
+    <TextView
+        android:id="@+id/myname_main"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:text="@string/myname_main"
+        android:textColor="@color/text_color"
+        android:textSize="20sp"/>
+
+    <!--Explicación la aplicación -->
+    <TextView
+        android:id="@+id/app_description"
+        android:layout_width="wrap_content"
+        android:layout_height="98dp"
+        android:text="@string/app_description"
+        android:textColor="@color/text_color"
+        android:textSize="20sp" />
+
+    <!-- Botón de inicio -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/button_color"
+        android:text="@string/main_button"
+        android:textColor="@color/text_color"
+        android:textSize="18sp" />
+
+
+</LinearLayout>
