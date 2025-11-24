@@ -31,22 +31,18 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
     public void onBindViewHolder(@NonNull RestauranteViewHolder holder, int position) {
         Restaurante restaurante = listaRestaurantes.get(position);
 
-        // Asignar datos
         holder.tvNombre.setText(restaurante.getNombre());
         holder.tvTipo.setText(restaurante.getTipoComida());
         holder.tvMenu.setText(restaurante.getMenuDestacado());
 
-        // Lógica del Desplegable (Expandable)
         boolean isExpanded = restaurante.isExpanded();
         holder.layoutDesplegable.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
 
-        // Al hacer clic en el elemento, invertimos el estado de expansión
         holder.itemView.setOnClickListener(v -> {
             restaurante.setExpanded(!restaurante.isExpanded());
-            notifyItemChanged(position); // Notificamos cambio para animar/refrescar
+            notifyItemChanged(position);
         });
 
-        // Funcionalidad Extra: Botón pedir muestra un Toast
         holder.btnPedir.setOnClickListener(v -> {
             Toast.makeText(v.getContext(), "Pedido realizado a " + restaurante.getNombre(), Toast.LENGTH_SHORT).show();
         });

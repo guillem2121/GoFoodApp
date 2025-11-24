@@ -25,20 +25,17 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        // 1. Inicializar la lista de datos
         listaRestaurantes = new ArrayList<>();
         listaRestaurantes.add(new Restaurante("Burger King", "Comida Rápida", "Whopper, Patatas fritas, Aros de cebolla"));
         listaRestaurantes.add(new Restaurante("Telepizza", "Italiana", "Pizza Barbacoa, Pan de Ajo, Alitas"));
         listaRestaurantes.add(new Restaurante("Sushi Bar", "Japonesa", "Makis de salmón, Nigiris, Sopa Miso"));
 
-        // 2. Configurar RecyclerView
         recyclerView = findViewById(R.id.recyclerViewRestaurantes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         adapter = new RestauranteAdapter(listaRestaurantes);
         recyclerView.setAdapter(adapter);
 
-        // 3. Configurar Floating Action Button (FAB)
         FloatingActionButton fab = findViewById(R.id.fabAdd);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,32 +44,24 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        // ... código anterior (FAB, RecyclerView, etc) ...
-
-        // Configuración del botón VOLVER
         Button btnVolver = findViewById(R.id.btnVolver);
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // finish() cierra esta actividad y vuelve automáticamente a la anterior (MainActivity)
                 finish();
             }
         });
     }
 
     private void añadirRestaurante(View view) {
-        // Crear un restaurante nuevo simulado
+
         Restaurante nuevo = new Restaurante("Nuevo Wok " + (listaRestaurantes.size() + 1), "Asiática", "Tallarines tres delicias, Pollo al limón");
 
-        // Añadir a la lista y notificar al adaptador
         listaRestaurantes.add(nuevo);
         int position = listaRestaurantes.size() - 1;
         adapter.notifyItemInserted(position);
-
-        // Scrollear hasta el nuevo elemento
         recyclerView.scrollToPosition(position);
 
-        // 4. Mostrar Snackbar con acción DESHACER
         Snackbar.make(view, "Restaurante añadido", Snackbar.LENGTH_LONG)
                 .setAction("DESHACER", new View.OnClickListener() {
                     @Override
