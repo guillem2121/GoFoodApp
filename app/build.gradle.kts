@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.guillermomartin.gofoodapp"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.guillermomartin.gofoodapp"
